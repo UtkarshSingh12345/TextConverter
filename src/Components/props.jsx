@@ -10,7 +10,8 @@ function App(props) {
  const [text1 , setColor] = useState("primary");
  const [handle , setHandle] = useState(true);
  const [color , setNavbarColor ] = useState("dark");
-
+ const [switchTextColor , setSwitchTextColor] = useState("light");
+ const [object , setStyle]  = useState({});
 
  // Dark mode of Whole body 
  const changeStyle = ()=>{
@@ -22,6 +23,8 @@ function App(props) {
   document.querySelector("h1").style.color = "white";
   setHandle(false);
   setNavbarColor('light');
+  setSwitchTextColor("dark");
+  setStyle({color:'#fff'});
   }
  else
  {
@@ -31,9 +34,11 @@ function App(props) {
   document.querySelector("h1").style.color = "black";
   setHandle(true);
   setNavbarColor("dark");
+  setSwitchTextColor("light");
+  setStyle({});
+
  }             
  }
-
 
 //Style Button with a Dark Mode 
  var object4 = {
@@ -49,7 +54,7 @@ function App(props) {
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${color} bg-${color}`}>
-  <div className="container-fluid">
+  <div className="container-fluid" >
     <a className="navbar-brand" href="/">{props.name}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -57,7 +62,7 @@ function App(props) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Home</a>
+          <a  className="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/">{props.title}</a>
@@ -66,22 +71,22 @@ function App(props) {
           <a className="nav-link disabled" href="/" >{props.about}</a>
         </li>
       </ul>
-      <form className="d-flex">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button  className="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+  <div className={`form-check form-switch text-${switchTextColor}`}>
+  <input className="form-check-input" onClick = {changeStyle} type="checkbox" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" forHtml="flexSwitchCheckDefault">{text}</label>
+</div>
     </div>
   </div>
 </nav>
 
 {/* this is a form */}
- <div className="container my-3" >
+ <div className="container my-3" style = {object}>
 <Form headings="Enter any text to analyze"/>
 </div> 
 
 {/* {This is a About Component which you can Enable } */}
 {/* <About style={{position:'relative'}}/> */}
-<button className={`btn btn-${text1}`} onClick={changeStyle} style = {object4}>{text}</button></div>
+ <button className={`btn btn-${text1}`} onClick={changeStyle} style = {object4}>{text}</button></div>
   )
 }
 

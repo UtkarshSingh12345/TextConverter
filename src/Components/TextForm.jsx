@@ -92,7 +92,7 @@ export default function TextForm(props) {
         </div>
        <div className="container">
       <h2 className = "heading2">Preview Your Text</h2>
-      <p>{text}</p>
+      <p >{text.length === 0 ? "Preview Your Text Here" : text}</p>
       </div>
         </>
     )
