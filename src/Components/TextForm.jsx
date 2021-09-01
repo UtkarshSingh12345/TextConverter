@@ -49,6 +49,27 @@ export default function TextForm(props) {
 //     }
 // }
     const [text , setText] = useState("");
+    const CopyText = ()=>{
+        navigator.clipboard.writeText(text);
+    }
+    const RemoveSpace = ()=>{
+        const TextSpace = text.split(/[ ]+/);
+        setText(TextSpace.join(" "));
+    }
+
+    const firstLetterCapitalise = ()=>{
+        var b = text;
+        for( var a = 0 ; a<text.length ;a++ )
+       {
+           if((b[a] !== " " && b[a-1] === " ") || (b[a]!==" " && a===0))
+           {
+               b[a].toUpperCase();
+               console.log(b[a].toUpperCase());
+           }
+           console.log(b);
+        }
+        console.log(b);
+    }
     return (
          <> 
         <div className="container " >
@@ -60,8 +81,9 @@ export default function TextForm(props) {
         <button className="btn btn-primary" onClick={Change}>Convert into UpperCase</button>  
         <button className="btn btn-primary mx-2" onClick={Lower}>Convert Into LowerCase</button>  
         <button className="btn btn-primary mx-1 my-2" onClick={Clear}>Clear the text</button>  
-
-       
+        <button className="btn btn-primary mx-1 my-2" onClick={CopyText}>Copy the text</button>
+        <button className="btn btn-primary mx-1 my-2" onClick={RemoveSpace}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-1 my-2" onClick={firstLetterCapitalise}>First Letter-Capital</button>
         </div>
         <div className="container my-3">
         <h2 className = "heading2"> This is your Text Info </h2>
