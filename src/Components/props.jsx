@@ -3,6 +3,7 @@ import React , {useState} from 'react';
 import PropTypes from 'prop-types';
 // import About from "./Components/About.jsx"
 import Form from "./TextForm.jsx";
+import Alert from "./Alert.js";
 function App(props) {
  
  // Thsese are all useState to put the state
@@ -12,19 +13,30 @@ function App(props) {
  const [color , setNavbarColor ] = useState("dark");
  const [switchTextColor , setSwitchTextColor] = useState("light");
  const [object , setStyle]  = useState({});
+ const [alert , setAlert] = useState(null);
 
+ // This is for givinf 
+ const alertMode = (message , type , text)=>{
+ setAlert({
+   msg:message,
+   type:type,
+   text:text
+ })
+ setTimeout(()=>{setAlert(null)} , 1500);
+ }
  // Dark mode of Whole body 
  const changeStyle = ()=>{
   if(handle) 
   {
   setText("Home-LightMode");
   setColor("dark btn-outline-light");
-  document.querySelector("body").style.backgroundColor = "grey";
-  document.querySelector("h1").style.color = "white";
+  document.querySelector("body").style.backgroundColor = "#050A30";
+  document.querySelector("h1").style.color = "#fff";
   setHandle(false);
   setNavbarColor('light');
   setSwitchTextColor("dark");
   setStyle({color:'#fff'});
+  alertMode(<p>dark mode enabled</p> , "success" , <h2>Success</h2>);
   }
  else
  {
@@ -36,10 +48,12 @@ function App(props) {
   setNavbarColor("dark");
   setSwitchTextColor("light");
   setStyle({});
-
+  setAlert(null);
+  alertMode(<p>bright mode enabled</p> , "primary" , <h2>Success</h2>);
  }             
  }
 
+ 
 //Style Button with a Dark Mode 
  var object4 = {
    position:'absolute',
@@ -73,15 +87,15 @@ function App(props) {
       </ul>
   <div className={`form-check form-switch text-${switchTextColor}`}>
   <input className="form-check-input" onClick = {changeStyle} type="checkbox" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" forHtml="flexSwitchCheckDefault">{text}</label>
+  <label className="form-check-label" forhtml="flexSwitchCheckDefault">{text}</label>
 </div>
     </div>
   </div>
 </nav>
-
+<Alert alert = {alert}/>
 {/* this is a form */}
  <div className="container my-3" style = {object}>
-<Form headings="Enter any text to analyze"/>
+<Form Warning = {alertMode} headings="Enter any text to analyze"/>
 </div> 
 
 {/* {This is a About Component which you can Enable } */}
