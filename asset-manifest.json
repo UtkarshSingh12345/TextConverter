@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/TextConverter/static/js/main.ee0104c0.chunk.js",
+    "main.js.map": "/TextConverter/static/js/main.ee0104c0.chunk.js.map",
+    "runtime-main.js": "/TextConverter/static/js/runtime-main.ef336d45.js",
+    "runtime-main.js.map": "/TextConverter/static/js/runtime-main.ef336d45.js.map",
+    "static/js/2.ae8ec063.chunk.js": "/TextConverter/static/js/2.ae8ec063.chunk.js",
+    "static/js/2.ae8ec063.chunk.js.map": "/TextConverter/static/js/2.ae8ec063.chunk.js.map",
+    "index.html": "/TextConverter/index.html",
+    "static/js/2.ae8ec063.chunk.js.LICENSE.txt": "/TextConverter/static/js/2.ae8ec063.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ef336d45.js",
+    "static/js/2.ae8ec063.chunk.js",
+    "static/js/main.ee0104c0.chunk.js"
+  ]
+}
