@@ -9,6 +9,7 @@ export default function TextForm(props) {
           props.Warning(<p>text converted to upperCase</p> , "success" , <h2>Success</h2>);}
          else
          props.Warning(<p>no text to be converted to upperCase</p> , "danger" , <h2>Danger</h2>);
+         
     }
    //var count = 0;
    // Setting text at the value of the text area and at the input of textArea
@@ -104,7 +105,7 @@ export default function TextForm(props) {
 
 
     return (
-         <> 
+         <div> 
         <div className="container " >
         <h1 >{props.headings}</h1>
         <div className="mb-3">
@@ -127,6 +128,6 @@ export default function TextForm(props) {
        <h2 className = "heading2">Preview Your Text</h2>
        <p >{text.length === 0 ? "Preview Your Text Here" : text}</p>
       </div>
-        </>
+        </div>
     )
 }

@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 // import About from "./Components/About.jsx";
 import Alert from "./Alert.js";
 import DarkmodeColor from "./darkModeColors.jsx";
-import Form from "./TextForm.jsx";
-import {Link} from "react-router-dom"
-function App(props) {
+import { Link } from 'react-router-dom';
+function Navbar(props) {
  
 
  // Thsese are all useState to put the state
@@ -94,7 +93,7 @@ function App(props) {
           <Link className="nav-link" to="/">{props.title}</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link " to="/about" >{props.about}</Link>
+          <Link className="nav-link disabled" to="/" >{props.about}</Link>
         </li>
       </ul>
   <div style={paddingRight}>
@@ -118,25 +117,24 @@ function App(props) {
 <Alert alert = {alert}/>
 {/* this is a form */}
 <div className="container my-3" style = {object}>
-<Form Warning ={alertMode} headings = "Enter the text to analyze below" />
 </div> 
 
 {/* {This is a About Component which you can Enable } */}
-{/* <Linkbout style={{position:'relative'}}/> */}
+{/* <About style={{position:'relative'}}/> */}
  <button className={`btn btn-${text1}`} onClick={changeStyle} style = {object4}>{text}</button></div>
   )
 }
 
-App.defaultProps = {
+Navbar.defaultProps = {
   name:"Utkarsh Singh",
   title:"Default Title",
   about:"Default About",
 }
 
-App.propTypes = {
+Navbar.propTypes = {
   title :PropTypes.string.isRequired,
   about: PropTypes.string,
 }
 
 
-export default App;
+export default Navbar;

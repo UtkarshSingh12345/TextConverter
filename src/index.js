@@ -5,9 +5,9 @@ import App from "./App.js";
 // import DefaultProps from "./Components/DefaultClass.jsx";
 
 ReactDOM.render(
-  <>
+  <div>
   <App/>
-  </>
+  </div>
   ,
   document.getElementById('root')
 );
