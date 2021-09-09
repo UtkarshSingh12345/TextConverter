@@ -112,16 +112,16 @@ export default function TextForm(props) {
        <textarea placeholder="Enter the text " className="form-control" value={text} onChange={hello} id="exampleFormControlTextarea1" rows="8"></textarea>
         </div> 
        
-        <button className="btn btn-primary" onClick={Upper}>Convert into UpperCase</button>  
-        <button className="btn btn-primary mx-2" onClick={Lower}>Convert Into LowerCase</button>  
-        <button className="btn btn-primary mx-1 my-2" onClick={Clear}>Clear the text</button>  
-        <button className="btn btn-primary mx-1 my-2" onClick={CopyText}>Copy the text</button>
-        <button className="btn btn-primary mx-1 my-2" onClick={RemoveSpace}>Remove Extra Spaces</button>
-        <button className="btn btn-primary mx-1 my-2" onClick={firstLetterCapitalise}>First Letter-Capital</button>
+        <button  className="btn btn-primary my-1" onClick={Upper}>Convert into UpperCase</button>  
+        <button className="btn btn-primary mx-2 my-1" onClick={Lower}>Convert Into LowerCase</button>  
+        <button className="btn btn-primary mx-1 my-1" onClick={Clear}>Clear the text</button>  
+        <button  className="btn btn-primary mx-1 my-1" onClick={CopyText}>Copy the text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={RemoveSpace}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={firstLetterCapitalise}>First Letter-Capital</button>
         </div>
         <div className="container my-3">
         <h2 className = "heading2"> This is your Text Info </h2>
-        <p>{text.split(" ").length} words and {text.length} characters and the limit is {1000-text.length}/1000</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters and the limit is {1000-text.length}/1000</p>
         <p>{0.008*text.split(" ").length} minute is taken to read {text.split(" ").length} words</p>
         </div>
        <div className="container">

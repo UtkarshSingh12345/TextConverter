@@ -18,6 +18,7 @@ function App(props) {
  const [object , setStyle]  = useState({});
  const [alert , setAlert] = useState(null);
  const [changeDarkModeColor , setDarkMode] = useState("#050A30");
+ 
  // This is for givinf 
  const alertMode = (message , type , text)=>{
  setAlert({
@@ -29,7 +30,7 @@ function App(props) {
  }
 
  // Dark mode of Whole body 
- const changeStyle = ()=>{
+ const changeStyle = (cls)=>{
   if(handle) 
   {
   setText("Home-LightMode");
@@ -98,16 +99,14 @@ function App(props) {
         </li>
       </ul>
   <div style={paddingRight}>
-  <DarkmodeColor color={"red"} />
-  <DarkmodeColor color={"purple"} />
-  <DarkmodeColor color={"teal"} />
-  <DarkmodeColor color={"#050A30"} />
-  <DarkmodeColor color={"#E56997"} />
-  <DarkmodeColor color={"#66D2D6"} />
-  <DarkmodeColor color={"#FBC740"} />
-  <DarkmodeColor color={"#BD97CB"} />
-  </div> 
-  {/* this is a Dark mode Button */}
+  <DarkmodeColor onclick={()=>{changeStyle("red")}} color={"red"} />
+  <DarkmodeColor onclick={()=>{changeStyle("teal")}} color={"teal"} />
+  <DarkmodeColor onclick={()=>{changeStyle("#050A30")}} color={"#050A30"} />
+  <DarkmodeColor onclick={()=>{changeStyle("#E56997")}} color={"#E56997"} />
+  <DarkmodeColor onclick={()=>{changeStyle("#66D2D6")}} color={"#66D2D6"} />
+  <DarkmodeColor onclick={()=>{changeStyle("#FBC740")}} color={"#FBC740"} />
+  <DarkmodeColor onclick={()=>{changeStyle("#BD97CB")}} color={"#BD97CB"} />
+  </div>
   <div className={`form-check form-switch text-${switchTextColor}`}>
   <input className="form-check-input" onClick = {changeStyle} type="checkbox" id="flexSwitchCheckDefault"/>
   <label className="form-check-label" forhtml="flexSwitchCheckDefault">{text}</label>
